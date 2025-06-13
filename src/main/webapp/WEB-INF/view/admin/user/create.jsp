@@ -54,7 +54,7 @@
                                 <hr>
 
                                 <form:form class="row g-3" method="post" action="/admin/user/create"
-                                    modelAttribute="newUser">
+                                    modelAttribute="newUser" enctype="multipart/form-data">
                                     <div class="col-md-6 col-12">
                                         <label for="exampleInputEmail1" class="form-label">Email:</label>
                                         <form:input type="email" class="form-control" path="email" />
@@ -77,15 +77,15 @@
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <label class="form-label">Role:</label>
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option value="ADMIN">ADMIN</option>
-                                            <option value="USER">USER</option>
-                                        </select>
+                                        <form:select class="form-select" path="role.name">
+                                            <form:option value="ADMIN">ADMIN</form:option>
+                                            <form:option value="USER">USER</form:option>
+                                        </form:select>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <label for="avatarFile" class="form-label">Avatar</label>
                                         <input class="form-control" type="file" id="avatarFile"
-                                        accept=".png, .jpg, .jpeg">
+                                        accept=".png, .jpg, .jpeg" name="avatarFileTest"/>
                                     </div>
                                     <div class="col-12">
                                         <img src="" style="max-height: 250px; display: none;" alt="avatar preview"
