@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update User</title>
+    <title>User Detail</title>
     <!-- Latest compiled and minified CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -34,35 +34,26 @@
                         <li class="breadcrumb-item active">User</li>
                     </ol>
                     <div>
-                        <div class="row">
-                            <div class="col-md-6 col-12 mx-auto">
-                                <h2>Update User</h2>
-                                <hr>
-                                <form:form method="post" action="/admin/user/update" modelAttribute="user">
-                                    <div class="mb-3" style="display: none;">
-                                        <label for="exampleInputPassword1" class="form-label">Id:</label>
-                                        <form:input type="text" class="form-control" path="id" />
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Email:</label>
-                                        <form:input type="email" class="form-control" path="email" disabled="true" />
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Phone number:</label>
-                                        <form:input type="text" class="form-control" path="phone" />
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Full name:</label>
-                                        <form:input type="text" class="form-control" path="fullName" />
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Address:</label>
-                                        <form:input type="text" class="form-control" path="address" />
-                                    </div>
-                                    <button class="btn btn-warning">Update</button>
-                                </form:form>
-                            </div>
 
+                        <div class="row">
+                            <div class="col-12 mx-auto">
+                                <div class="d-flex justify-content-between">
+                                    <h2> User info with id= ${user.id} </h2>
+                                </div>
+                                <hr>
+                                <div class="card" style="width: 60%;">
+                                    <div class="card-header">
+                                        User info
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">Id: ${user.id}</li>
+                                        <li class="list-group-item">Email: ${user.email}</li>
+                                        <li class="list-group-item">Full name: ${user.fullName}</li>
+                                        <li class="list-group-item">Address: ${user.address}</li>
+                                    </ul>
+                                </div>
+                                <a href="/admin/user" class="btn btn-success mt-4">Back</a>
+                            </div>
                         </div>
                     </div>
                 </div>
