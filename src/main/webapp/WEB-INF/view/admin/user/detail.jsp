@@ -41,16 +41,25 @@
                                     <h2> User info with id= ${user.id} </h2>
                                 </div>
                                 <hr>
-                                <div class="card" style="width: 60%;">
-                                    <div class="card-header">
-                                        User info
+                                <div class="row">
+                                    <div class="col-md-6 col-12">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                User info
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">Id: ${user.id}</li>
+                                                <li class="list-group-item">Email: ${user.email}</li>
+                                                <li class="list-group-item">Full name: ${user.fullName}</li>
+                                                <li class="list-group-item">Address: ${user.address}</li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">Id: ${user.id}</li>
-                                        <li class="list-group-item">Email: ${user.email}</li>
-                                        <li class="list-group-item">Full name: ${user.fullName}</li>
-                                        <li class="list-group-item">Address: ${user.address}</li>
-                                    </ul>
+                                    <div class="col-12 col-md-6">
+                                        <img src="/images/avatar/${user.avatar}"
+                                            style="max-height: 250px; display: block;" alt="avatar preview"
+                                            id="avatarPreview" />
+                                    </div>
                                 </div>
                                 <a href="/admin/user" class="btn btn-success mt-4">Back</a>
                             </div>

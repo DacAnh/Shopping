@@ -19,6 +19,15 @@
     <!-- <link href="/css/demo.css" rel="stylesheet"> -->
     <link href="/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <script>
+                    $(document).ready(() => {
+                        const avatarFile = $("#avatarFile");
+                        avatarFile.change(function (e) {
+                            const imgURL = URL.createObjectURL(e.target.files[0]);
+                            $("#avatarPreview").attr("src", imgURL);
+                        });
+                    });
+                </script>
 </head>
 
 <body class="sb-nav-fixed">
@@ -38,28 +47,47 @@
                             <div class="col-md-6 col-12 mx-auto">
                                 <h2>Update User</h2>
                                 <hr>
-                                <form:form method="post" action="/admin/user/update" modelAttribute="user">
+                                <form:form class="row g-3" method="post" action="/admin/user/update"
+                                    modelAttribute="user" enctype="multipart/form-data">
                                     <div class="mb-3" style="display: none;">
                                         <label for="exampleInputPassword1" class="form-label">Id:</label>
                                         <form:input type="text" class="form-control" path="id" />
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="col-md-6 col-12">
                                         <label for="exampleInputEmail1" class="form-label">Email:</label>
-                                        <form:input type="email" class="form-control" path="email" disabled="true" />
+                                        <form:input type="email" class="form-control" path="email" disabled="true"/>
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="col-md-6 col-12">
                                         <label class="form-label">Phone number:</label>
                                         <form:input type="text" class="form-control" path="phone" />
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="col-12">
                                         <label class="form-label">Full name:</label>
                                         <form:input type="text" class="form-control" path="fullName" />
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="col-12">
                                         <label class="form-label">Address:</label>
                                         <form:input type="text" class="form-control" path="address" />
                                     </div>
-                                    <button class="btn btn-warning">Update</button>
+                                    <div class="col-md-6 col-12">
+                                        <label class="form-label">Role:</label>
+                                        <form:select class="form-select" path="role.name">
+                                            <form:option value="ADMIN">ADMIN</form:option>
+                                            <form:option value="USER">USER</form:option>
+                                        </form:select>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <label for="avatarFile" class="form-label">Avatar</label>
+                                        <input class="form-control" type="file" id="avatarFile"
+                                        accept=".png, .jpg, .jpeg" name="avatarFileTest"/>
+                                    </div>
+                                    <div class="col-12">
+                                        <img src="/images/avatar/${user.avatar}" style="max-height: 250px;" alt="avatar preview"
+                                        id="avatarPreview"/>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-warning">Update</button>
+                                    </div>
                                 </form:form>
                             </div>
 

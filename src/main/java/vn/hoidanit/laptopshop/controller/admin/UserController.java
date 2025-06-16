@@ -1,11 +1,9 @@
 package vn.hoidanit.laptopshop.controller.admin;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.List;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,9 +24,14 @@ public class UserController {
     private final UserService userService;
     private final UploadService uploadService;
 
-    public UserController(UserService userService, UploadService uploadService) {
+    private final PasswordEncoder passwordEncoder;
+
+    public UserController(UserService userService, 
+    UploadService uploadService, 
+    PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.uploadService = uploadService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @RequestMapping("/")
@@ -65,6 +68,12 @@ public class UserController {
             @ModelAttribute("newUser") User user,
             @RequestParam("avatarFileTest") MultipartFile file) {
         String avatar = this.uploadService.handleSaveUploadFile(file, "avatar");
+        String hashPassword = this.passwordEncoder.encode(user.getPassword());
+        user.setAvatar(avatar);
+        user.setPassword(hashPassword);
+        user.setRole(
+            this.userService.getRoleByName(user.getRole().getName())
+        );
         this.userService.handleSaveUser(user);
         return "redirect:/admin/user";
     }
@@ -77,9 +86,17 @@ public class UserController {
     }
 
     @PostMapping("/admin/user/update")
-    public String updateUserInfo(Model model, @ModelAttribute("user") User currentUser) {
+    public String updateUserInfo(Model model, 
+    @ModelAttribute("user") User currentUser,
+    @RequestParam("avatarFileTest") MultipartFile file) {
         User oldUser = this.userService.getOneUserById(currentUser.getId());
         if (oldUser != null) {
+            String nameFile= file.getOriginalFilename();
+            if(!nameFile.equals("")){
+                String avatar = this.uploadService.handleSaveUploadFile(file, "avatar");
+                oldUser.setAvatar(avatar);
+            }
+            oldUser.setRole(this.userService.getRoleByName(currentUser.getRole().getName()));
             oldUser.setFullName(currentUser.getFullName());
             oldUser.setAddress(currentUser.getAddress());
             oldUser.setPhone(currentUser.getPhone());
