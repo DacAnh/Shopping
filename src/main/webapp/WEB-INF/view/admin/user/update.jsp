@@ -85,8 +85,11 @@
                                         <img src="/images/avatar/${user.avatar}" style="max-height: 250px;" alt="avatar preview"
                                         id="avatarPreview"/>
                                     </div>
-                                    <div class="col-12">
+                                    <div class="col-md-2 col-12">
                                         <button class="btn btn-warning">Update</button>
+                                    </div>
+                                    <div class="col-md-2 col-12">
+                                        <a href="/admin/user" class="px-3 btn btn-info">Back</a>
                                     </div>
                                 </form:form>
                             </div>

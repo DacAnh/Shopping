@@ -1,11 +1,18 @@
 package vn.hoidanit.laptopshop.domain;
 
 
+import java.math.BigDecimal;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "products")
@@ -13,11 +20,27 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @NotNull
+    @Size(min = 5, message = "Tên sản phẩm không được để trống")
     private String name;
-    private double price;
+
+    @NotNull
+    @DecimalMin(value = "5", inclusive = false, message = "Giá sản phẩm phải lớn hơn 10.000 VNĐ")
+    private BigDecimal price;
+
     private String image;
+
+    @NotNull
+    @Size(min = 10, message = "Mô tả chi tiết tối thiểu 10 ký tự")
+    @Column(columnDefinition = "MEDIUMTEXT")
     private String detailDesc;
+    @NotNull
+    @Size(min = 5, message = "Mô tả ngắn tối thiểu 5 ký tự")
     private String shortDesc;
+
+    @NotNull
+    @Min(value = 1, message = "Số lượng phải lớn hơn hoặc bằng 1")
     private long quantity;
     private long sold;
     private String factory;
@@ -28,7 +51,7 @@ public class Product {
 
     public Product() {
     }
-    public Product(long id, String name, double price, String image, String detailDesc, String shortDesc, long quantity,
+    public Product(long id, String name, BigDecimal price, String image, String detailDesc, String shortDesc, long quantity,
             long sold, String factory, String target) {
         this.id = id;
         this.name = name;
@@ -54,10 +77,10 @@ public class Product {
     public void setName(String name) {
         this.name = name;
     }
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
     public String getImage() {
