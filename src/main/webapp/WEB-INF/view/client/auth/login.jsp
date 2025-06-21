@@ -48,10 +48,8 @@
                                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                                         </div>
                                         <div class="form-check mb-3">
-                                            <input class="form-check-input" id="inputRememberPassword" type="checkbox"
-                                                value="" />
-                                            <label class="form-check-label" for="inputRememberPassword">Nhớ mật
-                                                khẩu</label>
+                                            <input type="checkbox" name="remember-me" id="remember-me">
+                                            <label for="remember-me">Ghi nhớ đăng nhập</label>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                             <a class="small" href="#">Quên mật khẩu?</a>

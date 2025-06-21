@@ -3,11 +3,11 @@
 <footer class="py-4 bg-light mt-auto">
     <div class="container-fluid px-4">
         <div class="d-flex align-items-center justify-content-between small">
-            <div class="text-muted">Copyright &copy; Hỏi Dân IT 2024</div>
+            <div class="text-muted">Copyright &copy; AnhSP</div>
             <div>
-                <a href="https://hoidanit.vn/" target="_blank">Website</a>
+                <a href="#" target="_blank">Facebook</a>
                 &middot;
-                <a href="https://www.youtube.com/@hoidanit" target="_blank">Youtube channel</a>
+                <a href="https://youtube.com/@anhsp3032?si=_lqEJkuxdn8RVEqu" target="_blank">Youtube channel</a>
             </div>
         </div>
     </div>

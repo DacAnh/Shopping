@@ -7,12 +7,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update User</title>
+    <title>Cập nhật tài khoản</title>
     <!-- Latest compiled and minified CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
@@ -37,15 +34,15 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Manage user</h1>
+                    <h1 class="mt-4">Quản lý người dùng</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
-                        <li class="breadcrumb-item active">User</li>
+                        <li class="breadcrumb-item active">Người dùng</li>
                     </ol>
                     <div>
                         <div class="row">
                             <div class="col-md-6 col-12 mx-auto">
-                                <h2>Update User</h2>
+                                <h2>Cập nhật tài khoản</h2>
                                 <hr>
                                 <form:form class="row g-3" method="post" action="/admin/user/update"
                                     modelAttribute="user" enctype="multipart/form-data">
@@ -85,11 +82,11 @@
                                         <img src="/images/avatar/${user.avatar}" style="max-height: 250px;" alt="avatar preview"
                                         id="avatarPreview"/>
                                     </div>
-                                    <div class="col-md-2 col-12">
-                                        <button class="btn btn-warning">Update</button>
+                                    <div class="col-md-3 col-12">
+                                        <button class="btn btn-warning">Cập nhật</button>
                                     </div>
-                                    <div class="col-md-2 col-12">
-                                        <a href="/admin/user" class="px-3 btn btn-info">Back</a>
+                                    <div class="col-md-3 col-12">
+                                        <a href="/admin/user" class="btn btn-info">Quay lại</a>
                                     </div>
                                 </form:form>
                             </div>
