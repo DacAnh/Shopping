@@ -36,7 +36,7 @@ public class User {
     @Size(min= 3, message = "Họ tên tối thiểu 3 ký tự")
     private String fullName;
     
-    @Size(min = 2, message = "Cần nhập địa chỉ")
+    @Size(min = 2, message = "Địa chỉ không được để trống")
     private String address;
 
     @Min(value = 5, message = "Cần nhập số điện thoại")

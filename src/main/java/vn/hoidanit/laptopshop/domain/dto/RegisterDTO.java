@@ -1,12 +1,17 @@
 package vn.hoidanit.laptopshop.domain.dto;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Size;
 import vn.hoidanit.laptopshop.service.validator.RegisterChecked;
 
 @RegisterChecked
 public class RegisterDTO {
+    @Email(message = "Email không phù hợp", regexp = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$")
     private String email;
-    private String fistName;
+    @Size(min = 2,message = "Tên không được để trống")
+    private String firstName;
     private String lastName;
+    @Size(min = 5, message = "Mật khẩu phải có 5 ký tự trở lên")
     private String password;
     private String confirmPassword;
     
@@ -16,11 +21,11 @@ public class RegisterDTO {
     public void setEmail(String email) {
         this.email = email;
     }
-    public String getFistName() {
-        return fistName;
+    public String getFirstName() {
+        return firstName;
     }
-    public void setFistName(String fistName) {
-        this.fistName = fistName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
     public String getLastName() {
         return lastName;

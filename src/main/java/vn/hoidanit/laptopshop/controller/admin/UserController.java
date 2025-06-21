@@ -37,32 +37,32 @@ public class UserController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @RequestMapping("/")
-    public String getHomePage(Model model) {
-        List<User> arrUsers = this.userService.getAllUsersByEmail("huyen@gmail.com");
-        System.out.println("Tat ca du lieu: " + arrUsers);
-        model.addAttribute("newUser", new User());
-        return "hello";
-    }
+    // @RequestMapping("/")
+    // public String getHomePage(Model model) {
+    //     List<User> arrUsers = this.userService.getAllUsersByEmail("huyen@gmail.com");
+    //     System.out.println("Tat ca du lieu: " + arrUsers);
+    //     model.addAttribute("newUser", new User());
+    //     return "hello";
+    // }
 
     @RequestMapping("/admin/user")
     public String getUserInfo(Model model) {
         List<User> users = userService.getAllUsers();
         model.addAttribute("users", users);
-        return "/admin/user/show";
+        return "admin/user/show";
     }
 
     @RequestMapping("/admin/user/{id}")
     public String getUserDetailPage(Model model, @PathVariable long id) {
         User user = this.userService.getOneUserById(id);
         model.addAttribute("user", user);
-        return "/admin/user/detail";
+        return "admin/user/detail";
     }
 
     @GetMapping("/admin/user/create")
     public String getCreateUserPage(Model model) {
         model.addAttribute("newUser", new User());
-        return "/admin/user/create";
+        return "admin/user/create";
     }
 
     @PostMapping(value = "/admin/user/create")
@@ -97,7 +97,7 @@ public class UserController {
     public String getUpdateUserPage(Model model, @PathVariable long id) {
         User user = this.userService.getOneUserById(id);
         model.addAttribute("user", user);
-        return "/admin/user/update";
+        return "admin/user/update";
     }
 
     @PostMapping("/admin/user/update")
@@ -124,7 +124,7 @@ public class UserController {
     public String getDeleteUserPage(Model model, @PathVariable long id) {
         model.addAttribute("id", id);
         model.addAttribute("user", new User());
-        return "/admin/user/delete";
+        return "admin/user/delete";
     }
 
     @PostMapping("/admin/user/delete")

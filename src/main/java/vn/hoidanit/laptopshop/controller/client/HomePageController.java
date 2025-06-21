@@ -42,13 +42,17 @@ public class HomePageController {
     @GetMapping("/register")
     public String getRegisterPage(Model model){
         model.addAttribute("registerUser", new RegisterDTO());
-        return "/client/auth/register";
+        return "client/auth/register";
     }
 
     @PostMapping("/register")
     public String register(
-        @ModelAttribute("registerUser") @Valid RegisterDTO registerDTO,
-        BindingResult registerDTOBindingResult){
+    @ModelAttribute("registerUser") @Valid RegisterDTO registerDTO,
+    BindingResult registerDTOBindingResult){
+
+        if(registerDTOBindingResult.hasErrors()){
+            return "client/auth/register";
+        }
         User user = this.userService.registerDTOtoUser(registerDTO);
         String hashPassword = this.passwordEncoder.encode(user.getPassword());
         user.setPassword(hashPassword);
@@ -58,8 +62,19 @@ public class HomePageController {
     }
 
     @GetMapping("/login")
-    public String getLoginPage(){
-        return "/client/auth/login";
+    public String getLoginPage(Model model){
+        model.addAttribute("loginUser", new RegisterDTO());
+        return "client/auth/login";
+    }
+
+    @PostMapping("/login")
+    public String login(
+        @ModelAttribute("loginUser") @Valid RegisterDTO userDTO,
+        BindingResult loginUserBindingResult){
+            if(loginUserBindingResult.hasErrors()){
+                return "client/auth/login";
+            }
+            return "redirect:/";
     }
 
 }

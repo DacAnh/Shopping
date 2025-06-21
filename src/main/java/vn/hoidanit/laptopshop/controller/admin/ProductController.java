@@ -32,20 +32,20 @@ public class ProductController {
     public String getProductPage(Model model) {
         List<Product> products= this.productService.getAllProducts();
         model.addAttribute("products", products);
-        return "/admin/product/show";
+        return "admin/product/show";
     }
 
     @GetMapping("/admin/product/{id}")
     public String getProductDetailPage(@PathVariable long id, Model model){
         Product product = this.productService.getOneProductById(id);
         model.addAttribute("product",product);
-        return "/admin/product/detail";
+        return "admin/product/detail";
     }
 
     @GetMapping("/admin/product/create")
     public String getCreateProductPage(Model model) {
         model.addAttribute("newProduct", new Product());
-        return "/admin/product/create";
+        return "admin/product/create";
     }
 
     @PostMapping("/admin/product/create")
@@ -55,7 +55,7 @@ public class ProductController {
             @RequestParam("productFileTest") MultipartFile file
     ) {
         if (newProducBindingResult.hasErrors()) {
-            return "/admin/product/create";
+            return "admin/product/create";
         }
 
         String productImage = this.uploadService.handleSaveUploadFile(file, "product");
@@ -68,7 +68,7 @@ public class ProductController {
     public String getUpdateProductPage(@PathVariable long id, Model model){
         Product product = this.productService.getOneProductById(id);
         model.addAttribute("product",product);
-        return "/admin/product/update";
+        return "admin/product/update";
     }
 
     @PostMapping("/admin/product/update")
@@ -81,7 +81,7 @@ public class ProductController {
 
         if(productBindingResult.hasErrors()){
             product.setImage(oldProduct.getImage());
-            return "/admin/product/update";
+            return "admin/product/update";
         }
         
         if(oldProduct!= null){
@@ -105,7 +105,7 @@ public class ProductController {
     public String getDeleteProductPage(@PathVariable long id, Model model){
         model.addAttribute("id",id);
         model.addAttribute("product",new Product());
-        return "/admin/product/delete"; 
+        return "admin/product/delete"; 
     }
 
     @PostMapping("/admin/product/delete")

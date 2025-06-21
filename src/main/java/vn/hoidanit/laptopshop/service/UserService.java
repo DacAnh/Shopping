@@ -37,6 +37,10 @@ public class UserService {
         return this.userRepository.findByEmail(email);
     }
 
+    public User getUserByEmail(String email){
+        return this.userRepository.findByEmail(email).get(0);
+    }
+
     public User handleSaveUser(User user){
         return this.userRepository.save(user);
     }
@@ -51,9 +55,13 @@ public class UserService {
 
     public User registerDTOtoUser(RegisterDTO registerDTO){
         User user = new User();
-        user.setFullName(registerDTO.getFistName() + " " + registerDTO.getLastName());
+        user.setFullName(registerDTO.getFirstName() + " " + registerDTO.getLastName());
         user.setEmail(registerDTO.getEmail());
         user.setPassword(registerDTO.getPassword());
         return user;
+    }
+
+    public boolean checkEmailExist(String email){
+        return this.userRepository.existsByEmail(email);
     }
 }
