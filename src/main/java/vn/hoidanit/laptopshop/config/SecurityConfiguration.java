@@ -79,7 +79,9 @@ public class SecurityConfiguration {
                         .loginPage("/login")
                         .successHandler(customSuccessHandler())
                         .failureUrl("/login?error")
-                        .permitAll());
+                        .permitAll())
+                .logout(logout -> logout.logoutSuccessUrl("/"))
+                .exceptionHandling(ex -> ex.accessDeniedPage("/access-deny"));
 
         return http.build();
     }
