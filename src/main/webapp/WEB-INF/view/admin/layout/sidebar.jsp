@@ -23,7 +23,7 @@
 
                 <a class="nav-link" href="/admin/order">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                    Hóa đơn đặt hàng
+                    Đơn đặt hàng
                 </a>
 
             </div>

@@ -14,6 +14,7 @@
     <title>Đăng nhập</title>
     <link href="/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
 <body class="bg-primary">
@@ -47,11 +48,14 @@
                                         <div>
                                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                                         </div>
-                                        <div class="form-check mb-3">
+                                        <div class="form-check mb-3 px-1">
                                             <input type="checkbox" name="remember-me" id="remember-me">
                                             <label for="remember-me">Ghi nhớ đăng nhập</label>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                                            <div>
+                                                <a href="/" class="btn btn-success bi bi-house-door"> Trang chủ</a>
+                                            </div>
                                             <a class="small" href="#">Quên mật khẩu?</a>
                                             <button class="btn btn-primary btn-block">Đăng nhập</button>
                                         </div>

@@ -2,12 +2,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create User</title>
+    <title>Sản phẩm mới</title>
     <!-- Latest compiled and minified CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -37,15 +38,15 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Manage product</h1>
+                    <h1 class="mt-4">Quản lý sản phẩm</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Product</li>
+                        <li class="breadcrumb-item active">Sản phẩm</li>
                     </ol>
                     <div>
                         <div class="row">
                             <div class="col-md-6 col-12 mx-auto">
-                                <h2>Create Product</h2>
+                                <h2>Sản phẩm mới</h2>
                                 <hr>
 
                                 <form:form class="row g-3" method="post" action="/admin/product/create"
@@ -54,7 +55,7 @@
                                         <c:set var="errorName">
                                             <form:errors path="name" cssClass="invalid-feedback" />
                                         </c:set>
-                                        <label class="form-label">Name:</label>
+                                        <label class="form-label">Tên:</label>
                                         <form:input type="text"
                                             class="form-control ${not empty errorName ? 'is-invalid':''}" path="name" />
                                         ${errorName}
@@ -64,7 +65,7 @@
                                         <c:set var="errorPrice">
                                             <form:errors path="price" cssClass="invalid-feedback" />
                                         </c:set>
-                                        <label class="form-label">Price:</label>
+                                        <label class="form-label">Giá:</label>
                                         <form:input type="text"
                                             class="form-control ${not empty errorPrice ? 'is-invalid':''}"
                                             path="price" />
@@ -74,7 +75,7 @@
                                         <c:set var="errorDetailDesc">
                                             <form:errors path="detailDesc" cssClass="invalid-feedback" />
                                         </c:set>
-                                        <label class="form-label">Detail description:</label>
+                                        <label class="form-label">Mô tả chi tiết:</label>
                                         <form:textarea type="text"
                                             class="form-control ${not empty errorDetailDesc ? 'is-invalid':''}"
                                             path="detailDesc" />
@@ -84,7 +85,7 @@
                                         <c:set var="errorShortDesc">
                                             <form:errors path="shortDesc" cssClass="invalid-feedback" />
                                         </c:set>
-                                        <label class="form-label">Shot description:</label>
+                                        <label class="form-label">Mô tả ngắn:</label>
                                         <form:input type="text"
                                             class="form-control ${not empty errorShortDesc ? 'is-invalid':''}"
                                             path="shortDesc" />
@@ -94,14 +95,14 @@
                                         <c:set var="errorQuantity">
                                             <form:errors path="quantity" cssClass="invalid-feedback" />
                                         </c:set>
-                                        <label class="form-label">Quantity:</label>
+                                        <label class="form-label">Số lượng:</label>
                                         <form:input type="text"
                                             class="form-control ${not empty errorQuantity ? 'is-invalid':''}"
                                             path="quantity" />
                                         ${errorQuantity}
                                     </div>
                                     <div class="mb-3 col-md-6 col-12">
-                                        <label class="form-label">Factory:</label>
+                                        <label class="form-label">Hãng sản xuất:</label>
                                         <form:select class="form-select" path="factory">
                                             <form:option value="APPLE">Apple (MacBook)</form:option>
                                             <form:option value="ASUS">Asus</form:option>
@@ -112,7 +113,7 @@
                                         </form:select>
                                     </div>
                                     <div class="mb-3 col-md-6 col-12">
-                                        <label class="form-label">Target:</label>
+                                        <label class="form-label">Đối tượng:</label>
                                         <form:select class="form-select" path="target">
                                             <form:option value="GAMMING">Gamming</form:option>
                                             <form:option value="VAN-PHONG">Văn phòng</form:option>
@@ -120,7 +121,7 @@
                                         </form:select>
                                     </div>
                                     <div class="mb-3 col-md-6 col-12">
-                                        <label for="avatarFile" class="form-label">Image:</label>
+                                        <label for="avatarFile" class="form-label">Ảnh minh họa:</label>
                                         <input class="form-control" type="file" id="productFile"
                                             accept=".png, .jpg, .jpeg" name="productFileTest" />
                                     </div>
@@ -129,10 +130,10 @@
                                             alt="product image preview" id="productPreview" />
                                     </div>
                                     <div class="col-md-2 col-12">
-                                        <button class="btn btn-primary">Create</button>
+                                        <button class="btn btn-primary">Tạo mới</button>
                                     </div>
                                     <div class="col-md-2 col-12">
-                                        <a href="/admin/product" class="px-3 btn btn-info">Back</a>
+                                        <a href="/admin/product" class=" btn btn-info">Quay lại</a>
                                     </div>
                                 </form:form>
                             </div>

@@ -1,5 +1,6 @@
 package vn.hoidanit.laptopshop.domain;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -17,8 +18,36 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private double totalPrice;
+    private BigDecimal totalPrice;
+    private String receiverName;
+    private String receiverAddress;
+    private String receiverPhone;
+    private String status;
 
+    public String getReceiverName() {
+        return receiverName;
+    }
+    public void setReceiverName(String receiverName) {
+        this.receiverName = receiverName;
+    }
+    public String getReceiverAddress() {
+        return receiverAddress;
+    }
+    public void setReceiverAddress(String receiverAddress) {
+        this.receiverAddress = receiverAddress;
+    }
+    public String getReceiverPhone() {
+        return receiverPhone;
+    }
+    public void setReceiverPhone(String receiverPhone) {
+        this.receiverPhone = receiverPhone;
+    }
+    public String getStatus() {
+        return status;
+    }
+    public void setStatus(String status) {
+        this.status = status;
+    }
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -39,9 +68,19 @@ public class Order {
     private List<OrderDetail> orderDetails;
     public Order() {
     }
-    public Order(long id, double totalPrice) {
+    public Order(
+            long id, 
+            BigDecimal totalPrice, 
+            String receiverName, 
+            String receiverAddress, 
+            String receiverPhone, 
+            String status) {
         this.id = id;
         this.totalPrice = totalPrice;
+        this.receiverName = receiverName;
+        this.receiverAddress = receiverAddress;
+        this.receiverPhone = receiverPhone;
+        this.status = status;
     }
 
     public long getId() {
@@ -50,10 +89,10 @@ public class Order {
     public void setId(long id) {
         this.id = id;
     }
-    public double getTotalPrice() {
+    public BigDecimal getTotalPrice() {
         return totalPrice;
     }
-    public void setTotalPrice(double totalPrice) {
+    public void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
     }
     @Override

@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -57,7 +58,7 @@
                                         <c:set var="errorEmail">
                                             <form:errors path="email" cssClass="invalid-feedback" />
                                         </c:set>
-                                        <label class="form-label">Email:</label>
+                                        <label class="form-label">Địa chỉ Email:</label>
                                         <form:input type="email"
                                             class="form-control ${not empty errorEmail ? 'is-invalid':''}" path="email" />
                                         ${errorEmail}
@@ -66,7 +67,7 @@
                                         <c:set var="errorPassword">
                                             <form:errors path="password" cssClass="invalid-feedback" />
                                         </c:set>
-                                        <label for="exampleInputPassword1" class="form-label">Password:</label>
+                                        <label for="exampleInputPassword1" class="form-label">Mật khẩu:</label>
                                         <form:input type="password" class="form-control ${not empty errorPassword ? 'is-invalid':''}" path="password" />
                                         ${errorPassword}
                                     </div>
@@ -74,7 +75,7 @@
                                         <c:set var="errorPhone">
                                             <form:errors path="phone" cssClass="invalid-feedback" />
                                         </c:set>
-                                        <label class="form-label">Phone number:</label>
+                                        <label class="form-label">Số điện thoại:</label>
                                         <form:input type="text" class="form-control ${not empty errorPhone ? 'is-invalid':''}" path="phone" />
                                         ${errorPhone}
                                     </div>
@@ -82,7 +83,7 @@
                                         <c:set var="errorFullName">
                                             <form:errors path="fullName" cssClass="invalid-feedback" />
                                         </c:set>
-                                        <label class="form-label">Full name:</label>
+                                        <label class="form-label">Họ tên</label>
                                         <form:input type="text" class="form-control ${not empty errorFullName ? 'is-invalid':''}" path="fullName" />
                                         ${errorFullName}
                                     </div>
@@ -90,15 +91,15 @@
                                         <c:set var="errorAddress">
                                             <form:errors path="address" cssClass="invalid-feedback" />
                                         </c:set>
-                                        <label class="form-label">Address:</label>
+                                        <label class="form-label">Địa chỉ:</label>
                                         <form:input type="text" class="form-control ${not empty errorAddress ? 'is-invalid':''}" path="address" />
                                         ${errorAddress}
                                     </div>
                                     <div class="col-md-6 col-12">
-                                        <label class="form-label">Role:</label>
+                                        <label class="form-label">Vai trò:</label>
                                         <form:select class="form-select" path="role.name">
-                                            <form:option value="ADMIN">ADMIN</form:option>
-                                            <form:option value="USER">USER</form:option>
+                                            <form:option value="ADMIN">Quản trị viên</form:option>
+                                            <form:option value="USER">Khách hàng</form:option>
                                         </form:select>
                                     </div>
                                     <div class="col-md-6 col-12">

@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="Hỏi Dân IT - Dự án laptopshop" />
     <meta name="author" content="Hỏi Dân IT" />
-    <title>Đơn hàng</title>
+    <title>Chi tiết đơn hàng</title>
     <link href="/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
@@ -31,52 +31,49 @@
                     <div>
                         <div class="row">
                             <div class="col-12 mx-auto">
-                                <div class="d-flex justify-content-between">
-                                    <h2> Danh sách đơn hàng</h2>
+                                <div class="d-flex justify-content-between mx-4">
+                                    <h2>Danh sách chi tiết đơn hàng với mã ID là ${orderId}</h2>
+                                    <a href="/admin/order"
+                                        class="btn btn-success px-3">Quay lại</a>
                                 </div>
                                 <hr>
                                 <table class="table table-bordered table-hover">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Id</th>
-                                            <th scope="col">Họ tên khách hàng</th>
-                                            <th scope="col">Tổng tiền</th>
-                                            <th scope="col">Trạng thái đơn hàng</th>
-                                            <th scope="col">Hành động</th>
+                                            <th scope="col">Ảnh minh họa</th>
+                                            <th scope="col">Tên sản phẩm</th>
+                                            <th scope="col">Giá cả</th>
+                                            <th scope="col">Số lượng</th>
+                                            <th scope="col">Thành tiền</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <c:forEach var="order" items="${orders}">
+                                        <c:forEach var="orderDetail" items="${orderDetails}">
                                             <tr>
-                                                <th scope="row">${order.id}</th>
-                                                <td>${order.receiverName}</td>
+                                                <th>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="/images/product/${orderDetail.product.image}"
+                                                            class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;"
+                                                            alt="">
+                                                    </div>
+                                                </th>
+                                                <td>
+                                                    <p class="mb-0 mt-4">
+                                                        <a href="/product/${orderDetail.product.id}" target="_blank">
+                                                            <!-- dùng _blank để click mở tab mới -->
+                                                            ${orderDetail.product.name}
+                                                        </a>
+                                                    </p>
+                                                </td>
                                                 <td>
                                                     <fmt:formatNumber type="currency" currencySymbol="VNĐ"
-                                                        maxFractionDigits="2" value="${order.totalPrice}" />               
+                                                        maxFractionDigits="2" value="${orderDetail.price}" />               
                                                 </td>
+                                                <td>${orderDetail.quantity}</td>
                                                 <td>
-                                                    <c:choose>
-                                                        <c:when test="${order.status == 'PENDING'}">
-                                                            Chờ xử lý
-                                                        </c:when>
-                                                        <c:when test="${order.status == 'SHIPPING'}">
-                                                            Đang vận chuyển
-                                                        </c:when>
-                                                        <c:when test="${order.status == 'COMPLETE'}">
-                                                            Giao hàng thành công
-                                                        </c:when>
-                                                        <c:when test="${order.status == 'CANCEL'}">
-                                                            Đã hủy
-                                                        </c:when>
-                                                    </c:choose>
-                                                </td>
-                                                <td>
-                                                    <a href="/admin/order/${order.id}" class="btn btn-success">Xem chi
-                                                        tiết</a>
-                                                    <a href="/admin/order/update/${order.id}" class="btn btn-warning">Cập
-                                                        nhật</a>
-                                                    <a href="/admin/order/delete/${order.id}"
-                                                        class="btn btn-danger">Xóa</a>
+                                                    <fmt:formatNumber type="currency" currencySymbol="VNĐ"
+                                                        maxFractionDigits="2" 
+                                                        value="${orderDetail.price*orderDetail.quantity}" />      
                                                 </td>
                                             </tr>
                                         </c:forEach>

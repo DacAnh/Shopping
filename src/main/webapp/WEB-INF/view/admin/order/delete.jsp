@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sản phẩm cần xóa</title>
+    <title>Đơn hàng cần xóa</title>
     <!-- Latest compiled and minified CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -26,18 +26,18 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Quản lý sản phẩm</h1>
+                    <h1 class="mt-4">Quản lý đơn hàng</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Sản phẩm</li>
+                        <li class="breadcrumb-item active">Đơn hàng</li>
                     </ol>
                     <div>
-                        <h1>Xóa sản phẩm mới mã ID là ${id}</h1>
+                        <h1>Xóa đơn hàng với mã ID là ${id}</h1>
                         <hr>
                         <div class="alert alert-danger" role="alert">
-                            Bạn chắc chắn muốn xóa sản phẩm này chứ?
+                            Bạn chắc chắn muốn xóa đơn hàng này chứ?
                         </div>
-                        <form:form action="/admin/product/delete" modelAttribute="product">
+                        <form:form action="/admin/order/delete" modelAttribute="order">
                             <div class="mb-3" style="display: none;">
                                 <label class="form-label">Id:</label>
                                 <form:input type="text" class="form-control" path="id" value="${id}" />
@@ -47,7 +47,7 @@
                                     <button class="btn btn-danger">Xác nhận</button>
                                 </div>
                                 <div class="col-md-1 col-12">
-                                    <a href="/admin/product" class="btn btn-info">Quay lại</a>
+                                    <a href="/admin/order" class="btn btn-info">Quay lại</a>
                                 </div>
                             </div>
                         </form:form>

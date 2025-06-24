@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -92,15 +93,18 @@
                                                             <a href="/product/${product.id}">${product.name}</a>
                                                         </h4>
                                                         <p style="font-size: 13px;">${product.shortDesc}</p>
-                                                        <div class="d-flex flex-lg-wrap">
+                                                        <div class="d-flex flex-lg-wrap justify-content-center">
                                                             <p style="font-size: 15px; text-align: center; width: 100%;"
                                                                 class="text-dark fw-bold mb-3">
                                                                 <fmt:formatNumber type="currency" currencySymbol="VNĐ" maxFractionDigits="2" value="${product.price}" />
                                                             </p>
-                                                            <a href="#"
-                                                                class="mx-auto border border-secondary rounded-pill px-3 text-primary"><i
+                                                            <form action="/add-product-to-cart/${product.id}" method="post">
+                                                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                                                                <button
+                                                                class="mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                     class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                Add to cart</a>
+                                                                Thêm vào giỏ</button>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -126,8 +130,9 @@
 
 
     <!-- JavaScript Libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+ 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="/client/lib/easing/easing.min.js"></script>
     <script src="/client/lib/waypoints/waypoints.min.js"></script>
     <script src="/client/lib/lightbox/js/lightbox.min.js"></script>

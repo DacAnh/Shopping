@@ -2,18 +2,19 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh sách tài khoản</title>
+    <title>Tài khoản</title>
     <!-- Latest compiled and minified CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- <link href="/css/demo.css" rel="stylesheet"> -->
     <link href="/css/styles.css" rel="stylesheet" />
-    
+
 </head>
 
 <body class="sb-nav-fixed">
@@ -40,10 +41,10 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">Id</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col">Full Name</th>
-                                            <th scope="col">Role</th>
-                                            <th scope="col">Action</th>
+                                            <th scope="col">Địa chỉ Email</th>
+                                            <th scope="col">Họ tên</th>
+                                            <th scope="col">Vai trò</th>
+                                            <th scope="col">Hành động</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -52,11 +53,18 @@
                                                 <th scope="row">${user.id}</th>
                                                 <td>${user.email}</td>
                                                 <td>${user.fullName}</td>
-                                                <td>${user.role.name}</td>
                                                 <td>
-                                                    <a href="/admin/user/${user.id}" class="btn btn-success">Xem chi tiết</a>
-                                                    <a href="/admin/user/update/${user.id}"
-                                                        class="btn btn-warning">Cập nhật</a>
+                                                    <c:choose>
+                                                        <c:when test="${user.role.name == 'ADMIN'}">Quản trị viên
+                                                        </c:when>
+                                                        <c:when test="${user.role.name == 'USER'}">Khách hàng</c:when>
+                                                    </c:choose>
+                                                </td>
+                                                <td>
+                                                    <a href="/admin/user/${user.id}" class="btn btn-success">Xem chi
+                                                        tiết</a>
+                                                    <a href="/admin/user/update/${user.id}" class="btn btn-warning">Cập
+                                                        nhật</a>
                                                     <a href="/admin/user/delete/${user.id}"
                                                         class="btn btn-danger">Xóa</a>
                                                 </td>
@@ -74,7 +82,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <script src="/js/scripts.js"></script>

@@ -113,4 +113,5 @@ public class ProductController {
         this.productService.deleteOneProductById(product.getId());
         return "redirect:/admin/product";
     }
+
 }

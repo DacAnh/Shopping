@@ -17,6 +17,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import vn.hoidanit.laptopshop.domain.Cart;
 import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.service.UserService;
 
@@ -56,6 +57,12 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
         User user = this.userService.getUserByEmail(email);
         session.setAttribute("fullName", user.getFullName());
         session.setAttribute("avatar", user.getAvatar());
+        session.setAttribute("email", user.getEmail());
+        session.setAttribute("id", user.getId());
+        int sumCart = user.getCart()==null ? 0 : user.getCart().getSum();
+        session.setAttribute("sumCart", sumCart);
+
+        
     }
 
     @Override

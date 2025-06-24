@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -25,30 +26,38 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Manage user</h1>
+                    <h1 class="mt-4">Quản lý người dùng</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
-                        <li class="breadcrumb-item active">User</li>
+                        <li class="breadcrumb-item active">Người dùng</li>
                     </ol>
                     <div>
 
                         <div class="row">
                             <div class="col-12 mx-auto">
                                 <div class="d-flex justify-content-between">
-                                    <h2> User info with id= ${user.id} </h2>
+                                    <h2> Thông tin tài khoản với mã ID là: ${user.id} </h2>
                                 </div>
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-6 col-12">
                                         <div class="card">
                                             <div class="card-header">
-                                                User info
+                                                Thông tin tài khoản 
                                             </div>
                                             <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">Id: ${user.id}</li>
-                                                <li class="list-group-item">Email: ${user.email}</li>
-                                                <li class="list-group-item">Full name: ${user.fullName}</li>
-                                                <li class="list-group-item">Address: ${user.address}</li>
+                                                <li class="list-group-item">ID: ${user.id}</li>
+                                                <li class="list-group-item">Địa chỉ Email: ${user.email}</li>
+                                                <li class="list-group-item">Họ tên: ${user.fullName}</li>
+                                                <li class="list-group-item">Vai trò: 
+                                                     <c:choose>
+                                                        <c:when test="${user.role.name == 'ADMIN'}">Quản trị viên
+                                                        </c:when>
+                                                        <c:when test="${user.role.name == 'USER'}">Khách hàng</c:when>
+                                                    </c:choose>
+                                                </li>
+                                                <li class="list-group-item">Số điện thoại: ${user.phone}</li>
+                                                <li class="list-group-item">Địa chỉ: ${user.address}</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -58,7 +67,7 @@
                                             id="avatarPreview" />
                                     </div>
                                 </div>
-                                <a href="/admin/user" class="btn btn-success mt-4">Back</a>
+                                <a href="/admin/user" class="btn btn-success mt-4">Quay lại</a>
                             </div>
                         </div>
                     </div>

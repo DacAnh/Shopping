@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -51,26 +52,26 @@
                                         <form:input type="text" class="form-control" path="id" />
                                     </div>
                                     <div class="col-md-6 col-12">
-                                        <label for="exampleInputEmail1" class="form-label">Email:</label>
+                                        <label for="exampleInputEmail1" class="form-label">Địa chỉ Email:</label>
                                         <form:input type="email" class="form-control" path="email" disabled="true"/>
                                     </div>
                                     <div class="col-md-6 col-12">
-                                        <label class="form-label">Phone number:</label>
+                                        <label class="form-label">Số điện thoại:</label>
                                         <form:input type="text" class="form-control" path="phone" />
                                     </div>
                                     <div class="col-12">
-                                        <label class="form-label">Full name:</label>
+                                        <label class="form-label">Họ tên:</label>
                                         <form:input type="text" class="form-control" path="fullName" />
                                     </div>
                                     <div class="col-12">
-                                        <label class="form-label">Address:</label>
+                                        <label class="form-label">Địa chỉ:</label>
                                         <form:input type="text" class="form-control" path="address" />
                                     </div>
                                     <div class="col-md-6 col-12">
-                                        <label class="form-label">Role:</label>
+                                        <label class="form-label">Vai trò:</label>
                                         <form:select class="form-select" path="role.name">
-                                            <form:option value="ADMIN">ADMIN</form:option>
-                                            <form:option value="USER">USER</form:option>
+                                            <form:option value="ADMIN">Quản trị viên</form:option>
+                                            <form:option value="USER">Khách hàng</form:option>
                                         </form:select>
                                     </div>
                                     <div class="col-md-6 col-12">

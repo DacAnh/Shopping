@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="Hỏi Dân IT - Dự án laptopshop" />
     <meta name="author" content="Hỏi Dân IT" />
-    <title>Product</title>
+    <title>Sản phẩm</title>
     <link href="/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
@@ -24,27 +24,27 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Manage product</h1>
+                    <h1 class="mt-4">Quản lý sản phẩm</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Product</li>
+                        <li class="breadcrumb-item active">Sản phẩm</li>
                     </ol>
                     <div>
                         <div class="row">
                             <div class="col-12 mx-auto">
                                 <div class="d-flex justify-content-between">
-                                    <h2> Table Products </h2>
-                                    <a href="/admin/product/create" class="btn btn btn-primary">Create a product</a>
+                                    <h2> Danh sách sản phẩm </h2>
+                                    <a href="/admin/product/create" class="btn btn btn-primary">Tạo sản phẩm</a>
                                 </div>
                                 <hr>
                                 <table class="table table-bordered table-hover">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Id</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Price</th>
-                                            <th scope="col">Factory</th>
-                                            <th scope="col">Action</th>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Tên</th>
+                                            <th scope="col">Giá cả</th>
+                                            <th scope="col">Hãng sản xuất</th>
+                                            <th scope="col">Hành động</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -59,11 +59,11 @@
                                                 <td>${product.factory}</td>
                                                 <td>
                                                     <a href="/admin/product/${product.id}"
-                                                        class="btn btn-success">View</a>
+                                                        class="btn btn-success">Xem chi tiết</a>
                                                     <a href="/admin/product/update/${product.id}"
-                                                        class="btn btn-warning">Update</a>
+                                                        class="btn btn-warning">Cập nhật</a>
                                                     <a href="/admin/product/delete/${product.id}"
-                                                        class="btn btn-danger">Delete</a>
+                                                        class="btn btn-danger">Xóa</a>
                                                 </td>
                                             </tr>
                                         </c:forEach>

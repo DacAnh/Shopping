@@ -14,12 +14,24 @@
                 <div class="col-lg-6">
                     <div class="d-flex justify-content-end pt-3">
                        
-                        <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href="https://www.facebook.com/dacanh1001/"><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href="https://youtube.com/@anhsp3032?si=_lqEJkuxdn8RVEqu"><i
-                                class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-secondary btn-md-square rounded-circle" href="https://github.com/AnhSP"><i
-                                class="fab fa-github"></i></a>
+                        <a 
+                            class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" 
+                            href="https://www.facebook.com/dacanh1001/" 
+                            target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a 
+                            class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" 
+                            href="https://youtube.com/@anhsp3032?si=_lqEJkuxdn8RVEqu" 
+                            target="_blank">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a 
+                            class="btn btn-outline-secondary btn-md-square rounded-circle" 
+                            href="https://github.com/AnhSP" 
+                            target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
                     </div>
                 </div>
             </div>
