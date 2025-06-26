@@ -132,8 +132,12 @@
                                     </button>
                                 </div>
                             </div>
-                            <a href="#" class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary"><i
-                                    class="fa fa-shopping-bag me-2 text-primary"></i>Thêm vào rỏ hàng</a>
+                            <form action="/add-product-to-cart/${product.id}" method="post">
+                                                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                                                                <button class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary"><i
+                                    class="fa fa-shopping-bag me-2 text-primary"></i>Thêm vào giỏ hàng</button>
+                                                            </form>
+                            
                         </div>
                         <div class="col-lg-12">
                             <nav>

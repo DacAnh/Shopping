@@ -89,6 +89,10 @@ public class OrderService {
         return this.orderRepository.findById(id).get();
     }
 
+    public List<Order> getAllByUser(User user){
+        return this.orderRepository.findAllByUser(user);
+    }
+
     public Order handleSaveOrder(Order order){
         return this.orderRepository.save(order);
     }

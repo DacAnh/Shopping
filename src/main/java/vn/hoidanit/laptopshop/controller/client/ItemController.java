@@ -17,6 +17,7 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import vn.hoidanit.laptopshop.domain.Cart;
 import vn.hoidanit.laptopshop.domain.CartDetail;
+import vn.hoidanit.laptopshop.domain.Order;
 import vn.hoidanit.laptopshop.domain.Product;
 import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.domain.dto.OrderDTO;
@@ -170,5 +171,17 @@ public class ItemController {
         this.orderService.handlePlaceOrder(session, currentUser, orderDTO);
 
         return "redirect:/";
+    }
+
+
+    @GetMapping("/order-history")
+    public String getHistoryPage(Model model, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        User currentUser = new User();
+        currentUser.setId((long) session.getAttribute("id"));
+
+        List<Order> orders = this.orderService.getAllByUser(currentUser);
+        model.addAttribute("orders",orders);
+        return "client/history/order_history";
     }
 }
