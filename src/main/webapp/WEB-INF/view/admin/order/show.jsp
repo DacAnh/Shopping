@@ -82,6 +82,37 @@
                                         </c:forEach>
                                     </tbody>
                                 </table>
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination justify-content-center">
+                                        <c:if test="${currentPage ne 1}">
+                                            <li class="page-item">
+                                                <a class="page-link" href="/admin/order?page=${currentPage-1}"
+                                                    aria-label="Previous">
+                                                    <span aria-hidden="true">&laquo;</span>
+                                                </a>
+                                            </li>
+                                        </c:if>
+
+                                        <c:forEach begin="0" end="${totalPages-1}" varStatus="loop">
+                                            <li class="page-item">
+                                                <a class="${(loop.index+1) eq currentPage ? 'page-link active' :'page-link'}"
+                                                    href="/admin/order?page=${loop.index+1}">
+                                                    ${loop.index+1}
+                                                </a>
+                                            </li>
+                                        </c:forEach>
+
+                                        <c:if test="${currentPage ne totalPages}">
+                                            <li class="page-item">
+                                                <a class="page-link" href="/admin/order?page=${currentPage+1}"
+                                                    aria-label="Next">
+                                                    <span aria-hidden="true">&raquo;</span>
+                                                </a>
+                                            </li>
+                                        </c:if>
+
+                                    </ul>
+                                </nav>
                             </div>
                         </div>
                     </div>

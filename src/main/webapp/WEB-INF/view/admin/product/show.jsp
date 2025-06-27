@@ -1,7 +1,8 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +35,8 @@
                             <div class="col-12 mx-auto">
                                 <div class="d-flex justify-content-between">
                                     <h2> Danh sách sản phẩm </h2>
-                                    <a href="/admin/product/create" class="btn btn btn-primary">Tạo sản phẩm</a>
+                                    <a href="/admin/product/create" class="btn btn btn-primary">Tạo sản
+                                        phẩm</a>
                                 </div>
                                 <hr>
                                 <table class="table table-bordered table-hover">
@@ -58,8 +60,8 @@
                                                 </td>
                                                 <td>${product.factory}</td>
                                                 <td>
-                                                    <a href="/admin/product/${product.id}"
-                                                        class="btn btn-success">Xem chi tiết</a>
+                                                    <a href="/admin/product/${product.id}" class="btn btn-success">Xem
+                                                        chi tiết</a>
                                                     <a href="/admin/product/update/${product.id}"
                                                         class="btn btn-warning">Cập nhật</a>
                                                     <a href="/admin/product/delete/${product.id}"
@@ -69,6 +71,37 @@
                                         </c:forEach>
                                     </tbody>
                                 </table>
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination justify-content-center">
+                                        <c:if test="${currentPage ne 1}">
+                                            <li class="page-item">
+                                                <a class="page-link" href="/admin/product?page=${currentPage-1}"
+                                                    aria-label="Previous">
+                                                    <span aria-hidden="true">&laquo;</span>
+                                                </a>
+                                            </li>
+                                        </c:if>
+
+                                        <c:forEach begin="0" end="${totalPages-1}" varStatus="loop">
+                                            <li class="page-item">
+                                                <a class="${(loop.index+1) eq currentPage ? 'page-link active' :'page-link'}"
+                                                    href="/admin/product?page=${loop.index+1}">
+                                                    ${loop.index+1}
+                                                </a>
+                                            </li>
+                                        </c:forEach>
+
+                                        <c:if test="${currentPage ne totalPages}">
+                                            <li class="page-item">
+                                                <a class="page-link" href="/admin/product?page=${currentPage+1}"
+                                                    aria-label="Next">
+                                                    <span aria-hidden="true">&raquo;</span>
+                                                </a>
+                                            </li>
+                                        </c:if>
+
+                                    </ul>
+                                </nav>
                             </div>
                         </div>
                     </div>
