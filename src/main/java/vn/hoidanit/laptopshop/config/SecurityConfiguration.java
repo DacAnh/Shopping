@@ -16,6 +16,7 @@ import org.springframework.session.security.web.authentication.SpringSessionReme
 import jakarta.servlet.DispatcherType;
 import vn.hoidanit.laptopshop.service.CustomUserDetailsService;
 import vn.hoidanit.laptopshop.service.UserService;
+import vn.hoidanit.laptopshop.service.brute_force.LoginAttemptService;
 
 @Configuration
 @EnableMethodSecurity(securedEnabled = true)
@@ -27,8 +28,8 @@ public class SecurityConfiguration {
     }
 
     @Bean
-    public UserDetailsService userDetailsService(UserService userService) {
-        return new CustomUserDetailsService(userService);
+    public UserDetailsService userDetailsService(UserService userService, LoginAttemptService loginAttemptService) {
+        return new CustomUserDetailsService(userService, loginAttemptService);
     }
 
     @Bean
