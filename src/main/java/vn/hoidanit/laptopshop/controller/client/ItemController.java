@@ -2,8 +2,14 @@ package vn.hoidanit.laptopshop.controller.client;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,6 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -19,8 +26,10 @@ import vn.hoidanit.laptopshop.domain.Cart;
 import vn.hoidanit.laptopshop.domain.CartDetail;
 import vn.hoidanit.laptopshop.domain.Order;
 import vn.hoidanit.laptopshop.domain.Product;
+import vn.hoidanit.laptopshop.domain.Product_;
 import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.domain.dto.OrderDTO;
+import vn.hoidanit.laptopshop.domain.dto.ProductCriterialDTO;
 import vn.hoidanit.laptopshop.service.CartDetailService;
 import vn.hoidanit.laptopshop.service.CartService;
 import vn.hoidanit.laptopshop.service.OrderService;
@@ -45,6 +54,86 @@ public class ItemController {
         this.orderService = orderService;
     }
 
+    @GetMapping("/products")
+    public String getAllItemPage(Model model,
+            ProductCriterialDTO productCriterialDTO,
+        // Spring boot tự động nạp query string (request param) vào biến java object
+            HttpServletRequest request
+    ) {
+        int page = 1;
+        String name ="";
+        try {
+            if(productCriterialDTO.getPage().isPresent()){
+                page = Integer.parseInt(productCriterialDTO.getPage().get());
+                
+            }
+            // if(nameOptional.isPresent()){
+            //     name = nameOptional.get();
+            // }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        Pageable pageable = PageRequest.of(page-1, 6);
+        // Vì sort liên quan đến trang (page) nên chưa thể đưa vào hàm handleProductsWithSpec
+        if(productCriterialDTO.getSort().isPresent()){
+            String sort = productCriterialDTO.getSort().get();
+            if(sort.equals("gia-tang-dan")){
+                pageable = PageRequest.of(page-1, 6, Sort.by(Product_.PRICE).ascending());
+            }
+            else if(sort.equals("gia-giam-dan")){
+                pageable = PageRequest.of(page-1, 6, Sort.by(Product_.PRICE).descending());
+            }
+        }
+        
+
+        // case chính
+        Page<Product> products = this.productService.handleProductsWithSpec(pageable, productCriterialDTO);
+
+        String queryString = request.getQueryString();
+        if(queryString!=null && !queryString.isBlank()){
+            queryString = queryString.replace("page="+ page, "");
+        }
+
+        //case 1
+        // BigDecimal min = minOptional.isPresent() ? 
+        //                             BigDecimal.valueOf(Double.parseDouble(minOptional.get())) : BigDecimal.ZERO;
+        // Page<Product> products = this.productService.handleProductsWithSpec(pageable, min);
+
+
+        //case 2
+        // BigDecimal max = maxOptional.isPresent() ? 
+        //                             BigDecimal.valueOf(Double.parseDouble(maxOptional.get())) : BigDecimal.ZERO;
+        // Page<Product> products = this.productService.handleProductsWithSpec(pageable, max);
+
+        
+        
+        //case 3
+        // List<String> factory = factoryOptional.isPresent() ? 
+        //                                     Arrays.asList(factoryOptional.get().split(",")) : null;
+        // Page<Product> products = this.productService.handleProductsWithSpec(pageable, factory);
+
+        //case 4
+        // String price = priceOptional.isPresent() ? 
+        //                                     priceOptional.get() : null;
+        // Page<Product> products = this.productService.handleProductsWithSpec(pageable, price);
+
+        //case 5
+        // List<String> price = priceOptional.isPresent() ? 
+        //                                     Arrays.asList(priceOptional.get().split(",")) : null;
+        // Page<Product> products = this.productService.handleProductsWithSpec(pageable, price);
+        
+        // Page<Product> products = this.productService.getAllProductsByName(pageable,name);
+
+
+        List<Product> listProducts = products.getContent();
+        model.addAttribute("products", listProducts);
+        model.addAttribute("totalPages", products.getTotalPages());
+        model.addAttribute("currentPage", page);
+        model.addAttribute("queryString", queryString);
+        return "client/product/show";
+    }
+
     @GetMapping("/product/{id}")
     public String getItemPage(Model model, @PathVariable long id) {
         Product product = this.productService.getOneProductById(id);
@@ -57,7 +146,7 @@ public class ItemController {
             @PathVariable long id,
             HttpServletRequest request) {
         HttpSession session = request.getSession(false);
-        this.productService.handleAddProductToCart(session, id);
+        this.productService.handleAddProductToCart(session, id, 1);
         return "redirect:/";
     }
 

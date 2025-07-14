@@ -41,7 +41,7 @@ public class ProductController {
                 page = Integer.parseInt(pageOptional.get());
             }
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
         
         Pageable pageable= PageRequest.of(page-1, 2);

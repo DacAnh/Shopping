@@ -54,10 +54,10 @@
                                         </div>
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                             <div>
-                                                <a href="/" class="btn btn-success bi bi-house-door"> Trang chủ</a>
+                                                <a href="/" class="btn btn-success bi bi-house-door p-2"> Trang chủ</a>
                                             </div>
                                             <a class="small" href="#">Quên mật khẩu?</a>
-                                            <button class="btn btn-primary btn-block">Đăng nhập</button>
+                                            <button class="btn btn-primary btn-block p-2">Đăng nhập</button>
                                         </div>
                                     </form>
                                 </div>

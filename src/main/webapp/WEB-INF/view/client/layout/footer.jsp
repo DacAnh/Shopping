@@ -71,6 +71,13 @@
 </div>
 <!-- Footer End -->
 
+<div class="container-fluid bg-dark text-center text-white-50 text-muted small">
+    Lưu ý: Website này được xây dựng phục vụ mục đích học tập và nghiên cứu cá nhân.<br>
+    Mọi thông tin được nhập trên trang đều không được sử dụng vào bất kỳ hoạt động thương mại nào. <br>
+    Chúng tôi không chịu trách nhiệm đối với bất kỳ rủi ro nào liên quan đến dữ liệu cá nhân
+     nếu người dùng sử dụng thông tin thật.
+</div>
+
 <!-- Copyright Start -->
 <div class="container-fluid copyright bg-dark py-4">
     <div class="container">

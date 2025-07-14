@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import jakarta.validation.Valid;
+import vn.hoidanit.laptopshop.constant.SystemConstant;
 import vn.hoidanit.laptopshop.domain.Product;
 import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.domain.dto.RegisterDTO;
@@ -61,7 +62,7 @@ public class HomePageController {
         User user = this.userService.registerDTOtoUser(registerDTO);
         String hashPassword = this.passwordEncoder.encode(user.getPassword());
         user.setPassword(hashPassword);
-        user.setRole(this.userService.getRoleByName("USER"));
+        user.setRole(this.userService.getRoleByName(SystemConstant.USER));
         this.userService.handleSaveUser(user);
         return "redirect:/login";
     }

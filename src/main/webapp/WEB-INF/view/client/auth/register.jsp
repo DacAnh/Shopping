@@ -46,7 +46,7 @@
                                                         path="firstName" 
                                                         type="text"
                                                         placeholder="Enter your first name" />
-                                                    <label for="inputFirstName">First name</label>
+                                                    <label for="inputFirstName">Tên</label>
                                                     ${errorFisrtName}
                                                 </div>
                                             </div>
@@ -54,7 +54,7 @@
                                                 <div class="form-floating">
                                                     <form:input class="form-control" path="lastName" type="text"
                                                         placeholder="Enter your last name" />
-                                                    <label for="inputLastName">Last name</label>
+                                                    <label for="inputLastName">Họ</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -64,7 +64,7 @@
                                                 path="email" 
                                                 type="email"
                                                 placeholder="name@example.com" />
-                                            <label for="inputEmail">Email address</label>
+                                            <label for="inputEmail">Địa chỉ email</label>
                                             ${errorEmail}
                                         </div>
                                         <div class="row mb-3">
@@ -75,15 +75,21 @@
                                                         path="password" 
                                                         type="password"
                                                         placeholder="Create a password" />
-                                                    <label for="inputPassword">Password</label>
+                                                    <label for="inputPassword">Mật khẩu</label>
                                                     ${errorPassword}
+                                                    <small class="text-danger d-block mt-1">
+    ⚠️ Không nên sử dụng mật khẩu cá nhân hoặc đã dùng ở nơi khác! <br>
+</small>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
                                                     <form:input class="form-control" path="confirmPassword"
                                                         type="password" placeholder="Confirm password" />
-                                                    <label for="inputPasswordConfirm">Confirm Password</label>
+                                                    <label for="inputPasswordConfirm">Xác nhận mật khẩu</label>
+                                                    <small class="text-warning d-block mt-1">
+    Chúng tôi không chịu trách nhiệm nếu bạn cố tình sử dụng mật khẩu cá nhân và bị lộ.
+</small>
                                                 </div>
                                             </div>
                                         </div>

@@ -12,6 +12,13 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
+    <!-- String boot hướng dẫn cần làm thế này để gửi json -->
+    <meta name="_csrf" content="${_csrf.token}" />
+    <meta name="_csrf_header" content="${_csrf.headerName}" />
+
+    <!-- sử dụng toast plugin để làm hiệu ứng thêm giỏ hàng -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.css" rel="stylesheet">
+
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -125,19 +132,25 @@
                                         <i class="fa fa-minus"></i>
                                     </button>
                                 </div>
-                                <input type="text" class="form-control form-control-sm text-center border-0" value="1">
+                                <input type="text" class="form-control form-control-sm text-center border-0" 
+                                        data-cart-detail-index="0" value="1">
                                 <div class="input-group-btn">
                                     <button class="btn btn-sm btn-plus rounded-circle bg-light border">
                                         <i class="fa fa-plus"></i>
                                     </button>
                                 </div>
                             </div>
-                            <form action="/add-product-to-cart/${product.id}" method="post">
+                            <!-- <form action="/add-product-to-cart/${product.id}" method="post">
                                                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                                                                 <button class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary"><i
                                     class="fa fa-shopping-bag me-2 text-primary"></i>Thêm vào giỏ hàng</button>
-                                                            </form>
-                            
+                                                            </form> -->
+                            <input class="form-control d-none" type="text" value="${product.id}" name="id"/>
+                            <input class="form-control d-none" type="text" value="1" name="quantity"
+                                    id="cartDetails0.quantity"/>
+                            <button data-product-id="${product.id}"
+                                    class="btnAddToCartDetail btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary"><i
+                                    class="fa fa-shopping-bag me-2 text-primary"></i>Thêm vào giỏ hàng</button>
                         </div>
                         <div class="col-lg-12">
                             <nav>
@@ -233,6 +246,9 @@
     <script src="/client/lib/waypoints/waypoints.min.js"></script>
     <script src="/client/lib/lightbox/js/lightbox.min.js"></script>
     <script src="/client/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- sử dụng toast plugin js để hỗ trợ toast plugin css làm hiệu ứng thêm giỏ hàng -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.js"></script>
 
     <!-- Template Javascript -->
     <script src="/client/js/main.js"></script>

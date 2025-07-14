@@ -201,7 +201,7 @@
                             </div>
                             <button class="btn border-secondary 
                                 rounded-pill px-4 py-3 text-primary 
-                                text-uppercase mb-4 ms-4">
+                                text-uppercase mb-4 ms-4" onclick="checkout()">
                                 Xác nhận thanh toán
                             </button>
 
@@ -234,6 +234,13 @@
 
     <!-- Template Javascript -->
     <script src="/client/js/main.js"></script>
+
+    <script>
+    function checkout() {
+        // Đặt flag vào sessionStorage
+        sessionStorage.setItem("successOrder", "true");
+    }
+    </script>
 </body>
 
 </html>
