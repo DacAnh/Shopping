@@ -103,6 +103,10 @@ public class ProductService {
                     min= BigDecimal.valueOf(20000000);
                     max= BigDecimal.valueOf(30000000);
                     break;
+                case "tren-30-trieu":
+                    min= BigDecimal.valueOf(20000000);
+                    max= BigDecimal.valueOf(30000000);
+                    break;
                 default:
                     break;
             }

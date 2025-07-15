@@ -132,20 +132,26 @@
                                 </div>
 
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="price-3" value="10-15-trieu">
+                                    <input class="form-check-input" type="checkbox" id="price-3" value="10-toi-15-trieu">
                                     <label class="form-check-label" for="price-3">Từ 10 - 15
                                         triệu</label>
                                 </div>
 
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="price-4" value="15-20-trieu">
+                                    <input class="form-check-input" type="checkbox" id="price-4" value="15-toi-20-trieu">
                                     <label class="form-check-label" for="price-4">Từ 15 - 20
                                         triệu</label>
                                 </div>
 
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="price-5" value="tren-20-triệu">
-                                    <label class="form-check-label" for="price-5">Trên 20 triệu</label>
+                                    <input class="form-check-input" type="checkbox" id="price-5" value="20-toi-30-trieu">
+                                    <label class="form-check-label" for="price-5">Từ 20 - 30
+                                        triệu</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="price-5" value="tren-30-trieu">
+                                    <label class="form-check-label" for="price-5">Trên 30 triệu</label>
                                 </div>
                             </div>
                             <div class="col-12">
