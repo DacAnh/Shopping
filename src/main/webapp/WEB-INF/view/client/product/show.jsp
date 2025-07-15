@@ -209,8 +209,8 @@
                                             <div class="d-flex  flex-lg-wrap justify-content-center flex-column">
                                                 <p style="font-size: 15px; text-align: center; width: 100%;"
                                                     class="text-dark  fw-bold mb-3">
-                                                    <fmt:formatNumber type="number" value="${product.price}" />
-                                                    đ
+                                                    <fmt:formatNumber type="currency" currencySymbol="VNĐ"
+                                                                maxFractionDigits="2" value="${product.price}" />
                                                 </p>
                                                 <form action="/add-product-to-cart/${product.id}" method="post">
                                                     <input type="hidden" name="${_csrf.parameterName}"
@@ -219,7 +219,7 @@
                                                     <button
                                                         class="mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
                                                             class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                        Add to cart
+                                                        Thêm vào giỏ
                                                     </button>
                                                 </form>
                                             </div>
