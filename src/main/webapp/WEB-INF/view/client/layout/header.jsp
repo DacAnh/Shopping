@@ -12,10 +12,9 @@
                 <span class="fa fa-bars text-primary"></span>
             </button>
             <div class="collapse navbar-collapse bg-white justify-content-between mx-5" id="navbarCollapse">
-                <c:set var="currentPath" value="${pageContext.request.requestURI.substring(pageContext.request.contextPath.length())}" />
                 <div class="navbar-nav">
-                    <a href="/" class="nav-item nav-link ${currentPath == '/' ? 'active' : ''}">Trang chủ</a>
-                    <a href="/products" class="nav-item nav-link ${currentPath.startsWith('/products') ? 'active' : ''}">Sản phẩm</a>
+                    <a href="/" class="nav-item nav-link ">Trang chủ</a>
+                    <a href="/products" class="nav-item nav-link ">Sản phẩm</a>
                 </div>
                 <div class="d-flex m-3 me-0">
                     <c:if test="${not empty pageContext.request.userPrincipal}">
