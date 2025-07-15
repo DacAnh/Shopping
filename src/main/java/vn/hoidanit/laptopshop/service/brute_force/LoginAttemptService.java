@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoginAttemptService {
     private final int MAX_ATTEMPTS = 3;
-    private final long LOCK_TIME_DURATION = 30 * 1000; // 10 giây demo, dùng 60 * 60 * 1000 cho 60 phút
+    private final long LOCK_TIME_DURATION = 60 * 1000; // 10 giây demo, dùng 60 * 60 * 1000 cho 60 phút
 
     private final Map<String, Integer> attempts = new ConcurrentHashMap<>();
     private final Map<String, Long> lockTime = new ConcurrentHashMap<>();
