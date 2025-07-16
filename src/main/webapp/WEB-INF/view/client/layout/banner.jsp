@@ -14,7 +14,7 @@
                         <div class="carousel-item active rounded">
                             <img src="/client/img/hero-img-1.png" class="img-fluid w-100 h-100 bg-secondary rounded"
                                 alt="First slide">
-                            <a href="#" class="btn px-4 py-2 text-white rounded">PC Gamming</a>
+                            <a href="#" class="btn px-4 py-2 text-white rounded">PC Gaming</a>
                         </div>
                         <div class="carousel-item rounded">
                             <img src="/client/img/hero-img-2.png" class="img-fluid w-100 h-100 rounded"

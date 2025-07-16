@@ -87,9 +87,6 @@
                                                     <form:input class="form-control" path="confirmPassword"
                                                         type="password" placeholder="Confirm password" />
                                                     <label for="inputPasswordConfirm">Xác nhận mật khẩu</label>
-                                                    <small class="text-warning d-block mt-1">
-    Chúng tôi không chịu trách nhiệm nếu bạn cố tình sử dụng mật khẩu cá nhân và bị lộ.
-</small>
                                                 </div>
                                             </div>
                                         </div>
