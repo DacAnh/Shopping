@@ -7,8 +7,15 @@
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8">
     <title>Giỏ hàng - Laptopshop</title>
+    <link rel="icon" type="image/png" href="/images/logo/laptop-logo.png">
+    <meta property="og:title" content="Laptop Shop" />
+    <meta property="og:description" content="Laptop chất lượng, phù hợp giá thị trường !" />
+    <meta property="og:image" content="https://laptopshopvn.up.railway.app/images/logo/laptop-logo.png" />
+    <meta property="og:url" content="https://laptopshopvn.up.railway.app/" />
+    <meta property="og:type" content="website" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">

@@ -5,9 +5,16 @@
 <html>
 
 <head>
+
     <title>Quyền truy cập</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="/images/logo/laptop-logo.png">
+    <meta property="og:title" content="Laptop Shop" />
+    <meta property="og:description" content="Laptop chất lượng, phù hợp giá thị trường !" />
+    <meta property="og:image" content="https://laptopshopvn.up.railway.app/images/logo/laptop-logo.png" />
+    <meta property="og:url" content="https://laptopshopvn.up.railway.app/" />
+    <meta property="og:type" content="website" />
     <style>
         body {
             background-color: black;

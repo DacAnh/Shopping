@@ -7,6 +7,12 @@
 
 <head>
     <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/images/logo/laptop-logo.png">
+    <meta property="og:title" content="Laptop Shop" />
+    <meta property="og:description" content="Laptop chất lượng, phù hợp giá thị trường !" />
+    <meta property="og:image" content="https://laptopshopvn.up.railway.app/images/logo/laptop-logo.png" />
+    <meta property="og:url" content="https://laptopshopvn.up.railway.app/" />
+    <meta property="og:type" content="website" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
@@ -77,8 +83,8 @@
                                                         placeholder="Create a password" />
                                                     <label for="inputPassword">Mật khẩu</label>
                                                     ${errorPassword}
-                                                    <small class="text-danger d-block mt-1">
-    ⚠️ Không nên sử dụng mật khẩu cá nhân hoặc đã dùng ở nơi khác! <br>
+                                                    <small class="text-warning d-block mt-1">
+    <p class="px-3">Không nên sử dụng mật khẩu cá nhân hoặc đã dùng ở nơi khác </p>
 </small>
                                                 </div>
                                             </div>

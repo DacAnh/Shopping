@@ -11,6 +11,12 @@
     <meta name="description" content="Hỏi Dân IT - Dự án laptopshop" />
     <meta name="author" content="Hỏi Dân IT" />
     <title>Dashboard - AnhSP</title>
+    <link rel="icon" type="image/png" href="/images/logo/laptop-logo.png">
+    <meta property="og:title" content="Laptop Shop" />
+    <meta property="og:description" content="Laptop chất lượng, phù hợp giá thị trường !" />
+    <meta property="og:image" content="https://laptopshopvn.up.railway.app/images/logo/laptop-logo.png" />
+    <meta property="og:url" content="https://laptopshopvn.up.railway.app/" />
+    <meta property="og:type" content="website" />
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>

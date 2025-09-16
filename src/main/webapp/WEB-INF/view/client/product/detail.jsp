@@ -9,6 +9,12 @@
     <meta charset="utf-8">
     <title>${product.name} - Laptopshop</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="icon" type="image/png" href="/images/logo/laptop-logo.png">
+    <meta property="og:title" content="Laptop Shop" />
+    <meta property="og:description" content="Laptop chất lượng, phù hợp giá thị trường !" />
+    <meta property="og:image" content="https://laptopshopvn.up.railway.app/images/logo/laptop-logo.png" />
+    <meta property="og:url" content="https://laptopshopvn.up.railway.app/" />
+    <meta property="og:type" content="website" />
     <meta content="" name="keywords">
     <meta content="" name="description">
 
@@ -181,17 +187,17 @@
                                         class="fa fa-search"></i></span>
                             </div>
                             <div class="mb-4">
-                                <h4>Thể loại</h4>
+                                <h4>Hãng xản xuất</h4>
                                 <ul class="list-unstyled fruite-categorie">
                                     <li>
                                         <div class="d-flex justify-content-between fruite-name">
-                                            <a href="#"><i class="fas fa-apple-alt me-2"></i>Asus</a>
+                                            <a href="#">Asus</a>
                                             <span>(3)</span>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="d-flex justify-content-between fruite-name">
-                                            <a href="#"><i class="fas fa-apple-alt me-2"></i>MacBook</a>
+                                            <a href="#">MacBook</a>
                                             <span>(5)</span>
                                         </div>
                                     </li>
