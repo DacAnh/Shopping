@@ -14,6 +14,8 @@
     <meta property="og:title" content="Laptop Shop" />
     <meta property="og:description" content="Laptop chất lượng, phù hợp giá thị trường !" />
     <meta property="og:image" content="https://laptopshopvn.up.railway.app/images/logo/laptop-logo.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="300" /> <meta property="og:image:height" content="300" />
     <meta property="og:url" content="https://laptopshopvn.up.railway.app/" />
     <meta property="og:type" content="website" />
 
