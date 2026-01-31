@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang chủ - Laptopshop</title>
 
-    <link rel="icon" type="image/png" href="/images/logo/laptop-logo.png">
+    <link rel="icon" type="image/png" href="https://laptopshopvn.up.railway.app/images/logo/laptop-logo.png">
     <meta property="og:title" content="Laptop Shop" />
     <meta property="og:description" content="Laptop chất lượng, phù hợp giá thị trường !" />
     <meta property="og:image" content="https://laptopshopvn.up.railway.app/images/logo/laptop-logo.png" />
